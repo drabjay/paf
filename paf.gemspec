@@ -10,7 +10,13 @@ Gem::Specification.new do |spec|
   spec.authors       = ['John Bard']
   spec.email         = ['johnbard@globalnet.co.uk']
 
-  spec.summary       = 'Royal Mail PAF Formatter'
+  spec.summary       = 'Royal Mail Postcode Address File (PAF) Formatter'
+  spec.description   = <<-EOF
+    A gem to format the elements of a Royal Mail Postcode Address File entry
+    according to the rules described in the Royal Mail Programmer's Guide
+    Edition 7, Version 5.0
+    (http://www.royalmail.com/sites/default/files/docs/pdf/programmers_guide_edition_7_v5.pdf)
+  EOF
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
