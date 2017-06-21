@@ -4,6 +4,7 @@ class Paf
     def self.included(base)
       base.extend ClassMethods
     end
+    private_class_method :included
 
     # Methods to be added to the including class
     module ClassMethods

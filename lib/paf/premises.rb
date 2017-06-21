@@ -9,6 +9,7 @@ class Paf
     def self.included(base)
       base.prepend Initializer
     end
+    private_class_method :included
 
     # initialize method to be prepended to the including class
     module Initializer
