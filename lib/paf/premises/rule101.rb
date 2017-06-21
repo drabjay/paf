@@ -13,10 +13,6 @@ class Paf
         true
       end
 
-      def concatenate?
-        concatenation_indicator == 'Y'
-      end
-
       def number_sub_name_and_thoroughfare_or_locality
         "#{building_number}#{sub_building_name} "\
           "#{first_thoroughfare_or_locality}"

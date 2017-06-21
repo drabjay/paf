@@ -7,6 +7,10 @@ class Paf
 
       private
 
+      def concatenate?
+        concatenation_indicator == 'Y'
+      end
+
       def sub_name_and_name
         "#{sub_building_name} #{building_name}"
       end
