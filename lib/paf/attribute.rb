@@ -1,5 +1,5 @@
 class Paf
-  # Basic attributes that make up a PAF entry
+  # Basic attributes or elements that make up a PAF entry
   module Attribute
     def self.included(base)
       base.extend ClassMethods

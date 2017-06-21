@@ -2,7 +2,7 @@ require 'paf/version'
 require 'paf/attribute'
 require 'paf/formattable'
 
-# BCore class from the elements of a UK Royal Mail Postcode Address File entry
+# Base class from the elements of a UK Royal Mail Postcode Address File entry
 class Paf
   include Paf::Attribute
   include Paf::Formattable
@@ -14,14 +14,17 @@ class Paf
     args.each { |k, v| send("#{k}=", v) }
   end
 
+  # PO Box number prepended with the string PO BOX
   def po_box
     "PO BOX #{po_box_number}" unless po_box_number.to_s.empty?
   end
 
+  # Dependent thoroughfare name and descriptor
   def dependent_thoroughfare
     concatenated(self.class.dependent_thoroughfare_attrs)
   end
 
+  # Thoroughfare name and descriptor
   def thoroughfare
     concatenated(self.class.thoroughfare_attrs)
   end

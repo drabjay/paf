@@ -25,16 +25,19 @@ class Paf
         ]
       end
 
+      # Formats a hash of PAF address elements into an array of strings
       def format(args)
         new(args).format
       end
 
+      # Formats a hash of PAF address elements into a string
       def to_s(*args)
         return super if args.empty?
         new(args[0]).to_s
       end
     end
 
+    # Formats a Paf instance into an array of strings
     def format
       array = lines
       %i[post_town postcode].each do |attr|
@@ -43,6 +46,7 @@ class Paf
       array
     end
 
+    # Formats a Paf instance into a string
     def to_s
       string = (lines + [post_town.to_s]).reject(&:empty?).join(', ')
       ([string] + [postcode]).reject(&:empty?).join('. ')
