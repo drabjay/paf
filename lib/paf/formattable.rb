@@ -1,3 +1,4 @@
+require 'paf/lineable'
 require 'paf/premises'
 require 'paf/thoroughfare_locality'
 
@@ -7,6 +8,7 @@ class Paf
     def self.included(base)
       base.extend ClassMethods
       base.class_eval do
+        include Lineable
         include Premises
         include ThoroughfareLocality
       end
@@ -15,10 +17,6 @@ class Paf
 
     # Methods to be added to the including class
     module ClassMethods
-      def lines_methods
-        organisation_attrs + %i[po_box premises thoroughfares_and_localities]
-      end
-
       # Formats a hash of PAF address elements into an array of strings
       def format(args)
         new(args).format
@@ -44,17 +42,6 @@ class Paf
     def to_s
       string = (lines + [post_town]).condense.join(', ')
       ([string] + [postcode]).condense.join('. ')
-    end
-
-    private
-
-    def lines
-      lines = []
-      self.class.lines_methods.each do |method|
-        value = send(method)
-        (lines << value).flatten! unless value.vacant?
-      end
-      lines
     end
   end
 end
