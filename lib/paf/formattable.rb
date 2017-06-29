@@ -16,13 +16,7 @@ class Paf
     # Methods to be added to the including class
     module ClassMethods
       def lines_methods
-        %i[
-          organisation_name
-          department_name
-          po_box
-          premises
-          thoroughfares_and_localities
-        ]
+        organisation_attrs + %i[po_box premises thoroughfares_and_localities]
       end
 
       # Formats a hash of PAF address elements into an array of strings
@@ -40,7 +34,7 @@ class Paf
     # Formats a Paf instance into an array of strings
     def format
       array = lines
-      %i[post_town postcode].each do |attr|
+      self.class.post_attrs.each do |attr|
         array << send(attr) unless send(attr).vacant?
       end
       array

@@ -9,11 +9,17 @@ class Paf
     # Methods to be added to the including class
     module ClassMethods
       def attrs
-        premises_attrs +
+        organisation_attrs +
+          premises_attrs +
           dependent_thoroughfare_attrs +
           thoroughfare_attrs +
           locality_attrs +
+          post_attrs +
           other_attrs
+      end
+
+      def organisation_attrs
+        %i[organisation_name department_name]
       end
 
       def premises_attrs
@@ -32,15 +38,12 @@ class Paf
         %i[double_dependent_locality dependent_locality]
       end
 
+      def post_attrs
+        %i[post_town postcode]
+      end
+
       def other_attrs
-        %i[
-          organisation_name
-          department_name
-          po_box_number
-          post_town
-          postcode
-          udprn
-        ]
+        %i[po_box_number udprn]
       end
     end
   end
