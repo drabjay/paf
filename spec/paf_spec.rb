@@ -17,6 +17,14 @@ RSpec.describe Paf do
     )
   end
 
+  it 'formats empty address as array' do
+    expect(described_class.format({})).to eq([])
+  end
+
+  it 'formats empty address as string' do
+    expect(described_class.to_s({})).to eq('')
+  end
+
   it 'formats address with PO Box' do
     expect(
       described_class.format(
