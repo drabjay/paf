@@ -1,6 +1,7 @@
 require 'paf/version'
 require 'paf/attribute'
 require 'paf/formattable'
+require 'paf/core_ext/string'
 
 # Base class from the elements of a UK Royal Mail Postcode Address File entry
 class Paf

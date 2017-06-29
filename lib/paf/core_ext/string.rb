@@ -1,5 +1,5 @@
 class Paf
-  module Premises
+  module CoreExt
     # Extend the core String class with PAF specific processing
     module String
       def paf_exception?
@@ -13,4 +13,4 @@ class Paf
   end
 end
 
-String.include Paf::Premises::String
+String.include Paf::CoreExt::String

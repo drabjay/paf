@@ -1,4 +1,3 @@
-require 'paf/premises/string'
 require 'paf/premises/common'
 
 class Paf
