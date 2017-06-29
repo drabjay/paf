@@ -34,9 +34,7 @@ class Paf
     end
 
     def rule_key
-      self.class.premises_attrs.map do |attr|
-        send(attr).to_s.empty? ? 0 : 1
-      end.join
+      self.class.premises_attrs.map { |attr| send(attr).vacant? ? 0 : 1 }.join
     end
   end
 end

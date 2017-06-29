@@ -20,7 +20,7 @@ class Paf
       self.class.thoroughfare_and_locality_attrs.each do |attr|
         next if used?(attr)
         value = send(attr)
-        array << value unless value.to_s.empty?
+        array << value unless value.vacant?
       end
       array
     end
@@ -32,7 +32,7 @@ class Paf
 
     def first_thoroughfare_or_locality_attr
       self.class.thoroughfare_and_locality_attrs.find do |attr|
-        !send(attr).to_s.empty?
+        !send(attr).vacant?
       end
     end
 

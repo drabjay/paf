@@ -1,6 +1,7 @@
 require 'paf/version'
 require 'paf/attribute'
 require 'paf/formattable'
+require 'paf/core_ext/object'
 require 'paf/core_ext/string'
 
 # Base class from the elements of a UK Royal Mail Postcode Address File entry
@@ -17,7 +18,7 @@ class Paf
 
   # PO Box number prepended with the string PO BOX
   def po_box
-    "PO BOX #{po_box_number}" unless po_box_number.to_s.empty?
+    "PO BOX #{po_box_number}" unless po_box_number.vacant?
   end
 
   # Dependent thoroughfare name and descriptor
@@ -33,7 +34,7 @@ class Paf
   private
 
   def concatenated(attrs)
-    value = attrs.map { |attr| send(attr).to_s }.reject(&:empty?).join(' ')
-    value unless value.to_s.empty?
+    value = attrs.map { |attr| send(attr) }.reject(&:vacant?).join(' ')
+    value unless value.vacant?
   end
 end

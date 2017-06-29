@@ -41,15 +41,15 @@ class Paf
     def format
       array = lines
       %i[post_town postcode].each do |attr|
-        array << send(attr) unless send(attr).to_s.empty?
+        array << send(attr) unless send(attr).vacant?
       end
       array
     end
 
     # Formats a Paf instance into a string
     def to_s
-      string = (lines + [post_town.to_s]).reject(&:empty?).join(', ')
-      ([string] + [postcode.to_s]).reject(&:empty?).join('. ')
+      string = (lines + [post_town]).reject(&:vacant?).join(', ')
+      ([string] + [postcode]).reject(&:vacant?).join('. ')
     end
 
     private
@@ -58,7 +58,7 @@ class Paf
       lines = []
       self.class.lines_methods.each do |method|
         value = send(method)
-        (lines << value).flatten! unless value.nil? || value.empty?
+        (lines << value).flatten! unless value.vacant?
       end
       lines
     end
