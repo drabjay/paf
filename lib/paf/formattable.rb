@@ -48,8 +48,8 @@ class Paf
 
     # Formats a Paf instance into a string
     def to_s
-      string = (lines + [post_town]).reject(&:vacant?).join(', ')
-      ([string] + [postcode]).reject(&:vacant?).join('. ')
+      string = (lines + [post_town]).condense.join(', ')
+      ([string] + [postcode]).condense.join('. ')
     end
 
     private

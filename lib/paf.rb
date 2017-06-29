@@ -3,6 +3,7 @@ require 'paf/attribute'
 require 'paf/formattable'
 require 'paf/core_ext/object'
 require 'paf/core_ext/string'
+require 'paf/core_ext/array'
 
 # Base class from the elements of a UK Royal Mail Postcode Address File entry
 class Paf
@@ -34,7 +35,7 @@ class Paf
   private
 
   def concatenated(attrs)
-    value = attrs.map { |attr| send(attr) }.reject(&:vacant?).join(' ')
+    value = attrs.map { |attr| send(attr) }.condense.join(' ')
     value unless value.vacant?
   end
 end
