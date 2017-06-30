@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.version       = Paf::VERSION
   spec.authors       = ['John Bard']
   spec.email         = ['johnbard@globalnet.co.uk']
+  spec.homepage      = 'https://github.com/drabjay/paf'
 
   spec.summary       = 'Royal Mail Postcode Address File (PAF) Formatter'
   spec.description   = <<-EOF
