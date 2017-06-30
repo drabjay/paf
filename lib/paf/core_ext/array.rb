@@ -4,8 +4,8 @@ class Paf
   module CoreExt
     # Extend the core Array class with PAF specific processing
     module Array
-      def condense
-        reject(&:vacant?)
+      def condense(separator)
+        reject(&:vacant?).join(separator)
       end
     end
   end

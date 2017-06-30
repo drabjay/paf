@@ -35,7 +35,7 @@ class Paf
   private
 
   def concatenated(attrs)
-    value = attrs.map { |attr| send(attr) }.condense.join(' ')
+    value = attrs.map { |attr| send(attr) }.condense(' ')
     value unless value.vacant?
   end
 end
