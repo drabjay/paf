@@ -20,6 +20,6 @@ RSpec.describe Paf do
     end
     let(:string) { 'LEDA ENGINEERING LTD, APPLEFORD, ABINGDON. OX14 4PG' }
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 end

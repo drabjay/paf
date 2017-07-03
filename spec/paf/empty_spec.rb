@@ -6,6 +6,6 @@ RSpec.describe Paf do
     let(:array) { [] }
     let(:string) { '' }
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 end

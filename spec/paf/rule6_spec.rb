@@ -23,7 +23,7 @@ RSpec.describe Paf do
     end
     let(:string) { '10B BARRY JACKSON TOWER, ESTONE WALK, BIRMINGHAM. B6 5BA' }
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 
   context 'with Rule 6 with building name exception' do
@@ -49,7 +49,7 @@ RSpec.describe Paf do
       'CARETAKERS FLAT, 110-114 HIGH STREET WEST, BRISTOL. BS1 2AW'
     end
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 
   context 'with Rule 6 without exception' do
@@ -74,7 +74,7 @@ RSpec.describe Paf do
     end
     let(:string) { 'STABLES FLAT, THE MANOR, UPPER HILL, HORLEY. RH6 0HP' }
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 end
 # rubocop:enable Metrics/BlockLength

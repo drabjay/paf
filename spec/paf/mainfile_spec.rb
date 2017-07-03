@@ -42,7 +42,7 @@ RSpec.describe Paf do
       'G72 0UP'
     end
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 end
 # rubocop:enable Metrics/BlockLength

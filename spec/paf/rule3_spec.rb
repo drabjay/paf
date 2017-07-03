@@ -17,7 +17,7 @@ RSpec.describe Paf do
     let(:array) { ['1A SEASTONE COURT', 'STATION ROAD', 'HOLT', 'NR25 7HG'] }
     let(:string) { '1A SEASTONE COURT, STATION ROAD, HOLT. NR25 7HG' }
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 
   context 'with Rule 3 without building name exception' do
@@ -33,7 +33,7 @@ RSpec.describe Paf do
     let(:array) { ['THE MANOR', 'UPPER HILL', 'HORLEY', 'RH6 0HP'] }
     let(:string) { 'THE MANOR, UPPER HILL, HORLEY. RH6 0HP' }
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 
   context 'with Rule 3 with split exception' do
@@ -64,7 +64,7 @@ RSpec.describe Paf do
       'WS11 5SB'
     end
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 
   context 'with Rule 3 without split exception' do
@@ -95,7 +95,7 @@ RSpec.describe Paf do
       'ME16 0LP'
     end
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 end
 # rubocop:enable Metrics/BlockLength

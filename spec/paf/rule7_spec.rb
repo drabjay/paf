@@ -17,7 +17,7 @@ RSpec.describe Paf do
     let(:array) { ['2B THE TOWER', '27 JOHN STREET', 'WINCHESTER', 'SO23 9AP'] }
     let(:string) { '2B THE TOWER, 27 JOHN STREET, WINCHESTER. SO23 9AP' }
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 
   context 'with Rule 7 without exception' do
@@ -45,7 +45,7 @@ RSpec.describe Paf do
       'BASEMENT FLAT, VICTORIA HOUSE, 15 THE STREET, CORYTON. BP23 6AA'
     end
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 end
 # rubocop:enable Metrics/BlockLength

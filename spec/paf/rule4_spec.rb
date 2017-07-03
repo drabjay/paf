@@ -22,6 +22,6 @@ RSpec.describe Paf do
     end
     let(:string) { 'VICTORIA HOUSE, 15 THE STREET, CHRISTCHURCH. BH23 6AA' }
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 end

@@ -14,6 +14,6 @@ RSpec.describe Paf do
     let(:array) { ['1 ACACIA AVENUE', 'ABINGDON', 'OX14 4PG'] }
     let(:string) { '1 ACACIA AVENUE, ABINGDON. OX14 4PG' }
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 end

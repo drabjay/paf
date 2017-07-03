@@ -16,7 +16,7 @@ RSpec.describe Paf do
     let(:array) { ['FLAT 1', '12 LIME TREE AVENUE', 'BRISTOL', 'BS8 4AB'] }
     let(:string) { 'FLAT 1, 12 LIME TREE AVENUE, BRISTOL. BS8 4AB' }
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 
   context 'with Rule 5 with concatenation indicator' do
@@ -42,7 +42,7 @@ RSpec.describe Paf do
     end
     let(:string) { '12A HIGH STREET NORTH, COOMBE BISSETT, SALISBURY. SP5 4NA' }
 
-    it_behaves_like 'is_fully_formattable'
+    it_behaves_like 'it is fully formattable'
   end
 end
 # rubocop:enable Metrics/BlockLength
