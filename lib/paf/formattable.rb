@@ -18,8 +18,8 @@ class Paf
     # Methods to be added to the including class
     module ClassMethods
       # Formats a hash of PAF address elements into an array of strings
-      def format(args)
-        new(args).format
+      def to_a(args)
+        new(args).to_a
       end
 
       # Formats a hash of PAF address elements into a string
@@ -27,10 +27,12 @@ class Paf
         return super if args.empty?
         new(args[0]).to_s
       end
+
+      alias format to_a
     end
 
     # Formats a Paf instance into an array of strings
-    def format
+    def to_a
       array = lines
       self.class.post_attrs.each do |attr|
         array << send(attr) unless send(attr).vacant?
@@ -42,5 +44,7 @@ class Paf
     def to_s
       ([(lines + [post_town]).condense(', ')] + [postcode]).condense('. ')
     end
+
+    alias format to_a
   end
 end

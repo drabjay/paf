@@ -17,17 +17,13 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats empty address as array' do
-    expect(described_class.format({})).to eq([])
+  it 'arrayifies empty address' do
+    expect(described_class.to_a({})).to eq([])
   end
 
-  it 'formats empty address as string' do
-    expect(described_class.to_s({})).to eq('')
-  end
-
-  it 'formats address with PO Box' do
+  it 'arrayifies address with PO Box' do
     expect(
-      described_class.format(
+      described_class.to_a(
         po_box_number: 61,
         post_town: 'FAREHAM',
         postcode: 'PO14 1UX'
@@ -41,9 +37,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address with Exception Rule indicator i' do
+  it 'arrayifies address with Exception Rule indicator i' do
     expect(
-      described_class.format(
+      described_class.to_a(
         building_name: '1-2',
         thoroughfare_name: 'NURSERY',
         thoroughfare_descriptor: 'LANE',
@@ -61,9 +57,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address with Exception Rule indicator ii' do
+  it 'arrayifies address with Exception Rule indicator ii' do
     expect(
-      described_class.format(
+      described_class.to_a(
         building_name: '12A',
         thoroughfare_name: 'UPPERKIRKGATE',
         post_town: 'ABERDEEN',
@@ -78,9 +74,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address with Exception Rule indicator iii' do
+  it 'arrayifies address with Exception Rule indicator iii' do
     expect(
-      described_class.format(
+      described_class.to_a(
         building_name: 'K',
         thoroughfare_name: 'PORTLAND',
         thoroughfare_descriptor: 'ROAD',
@@ -96,9 +92,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address under Rule 1' do
+  it 'arrayifies address under Rule 1' do
     expect(
-      described_class.format(
+      described_class.to_a(
         organisation_name: 'LEDA ENGINEERING LTD',
         dependent_locality: 'APPLEFORD',
         post_town: 'ABINGDON',
@@ -114,9 +110,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address under Rule 2' do
+  it 'arrayifies address under Rule 2' do
     expect(
-      described_class.format(
+      described_class.to_a(
         building_number: 1,
         thoroughfare_name: 'ACACIA',
         thoroughfare_descriptor: 'AVENUE',
@@ -132,9 +128,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address under Rule 3 with building name exception' do
+  it 'arrayifies address under Rule 3 with building name exception' do
     expect(
-      described_class.format(
+      described_class.to_a(
         building_name: '1A',
         dependent_thoroughfare_name: 'SEASTONE',
         dependent_thoroughfare_descriptor: 'COURT',
@@ -153,9 +149,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address under Rule 3 without building name exception' do
+  it 'arrayifies address under Rule 3 without building name exception' do
     expect(
-      described_class.format(
+      described_class.to_a(
         building_name: 'THE MANOR',
         thoroughfare_name: 'UPPER',
         thoroughfare_descriptor: 'HILL',
@@ -172,9 +168,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address under Rule 3 with split exception' do
+  it 'arrayifies address under Rule 3 with split exception' do
     expect(
-      described_class.format(
+      described_class.to_a(
         organisation_name: 'S D ALCOTT FLORISTS',
         building_name: 'FLOWER HOUSE 189A',
         thoroughfare_name: 'PYE GREEN',
@@ -193,9 +189,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address under Rule 3 without split exception' do
+  it 'arrayifies address under Rule 3 without split exception' do
     expect(
-      described_class.format(
+      described_class.to_a(
         organisation_name: 'JAMES VILLA HOLIDAYS',
         building_name: 'CENTRE 30',
         thoroughfare_name: 'ST LAURENCE',
@@ -214,9 +210,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address under Rule 4' do
+  it 'arrayifies address under Rule 4' do
     expect(
-      described_class.format(
+      described_class.to_a(
         building_name: 'VICTORIA HOUSE',
         building_number: 15,
         thoroughfare_name: 'THE',
@@ -234,9 +230,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address under Rule 5' do
+  it 'arrayifies address under Rule 5' do
     expect(
-      described_class.format(
+      described_class.to_a(
         sub_building_name: 'FLAT 1',
         building_number: 12,
         thoroughfare_name: 'LIME TREE',
@@ -254,9 +250,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address under Rule 5 with concatenation indicator' do
+  it 'arrayifies address under Rule 5 with concatenation indicator' do
     expect(
-      described_class.format(
+      described_class.to_a(
         sub_building_name: 'A',
         building_number: 12,
         thoroughfare_name: 'HIGH',
@@ -276,9 +272,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address under Rule 6 with sub-building name exception' do
+  it 'arrayifies address under Rule 6 with sub-building name exception' do
     expect(
-      described_class.format(
+      described_class.to_a(
         sub_building_name: '10B',
         building_name: 'BARRY JACKSON TOWER',
         thoroughfare_name: 'ESTONE',
@@ -296,9 +292,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address under Rule 6 with building name exception' do
+  it 'arrayifies address under Rule 6 with building name exception' do
     expect(
-      described_class.format(
+      described_class.to_a(
         sub_building_name: 'CARETAKERS FLAT',
         building_name: '110-114',
         thoroughfare_name: 'HIGH',
@@ -316,9 +312,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address under Rule 6 without exception' do
+  it 'arrayifies address under Rule 6 without exception' do
     expect(
-      described_class.format(
+      described_class.to_a(
         sub_building_name: 'STABLES FLAT',
         building_name: 'THE MANOR',
         thoroughfare_name: 'UPPER',
@@ -337,9 +333,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address under Rule 7 with sub-building name exception' do
+  it 'arrayifies address under Rule 7 with sub-building name exception' do
     expect(
-      described_class.format(
+      described_class.to_a(
         sub_building_name: '2B',
         building_name: 'THE TOWER',
         building_number: 27,
@@ -358,9 +354,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address under Rule 7 without exception' do
+  it 'arrayifies address under Rule 7 without exception' do
     expect(
-      described_class.format(
+      described_class.to_a(
         sub_building_name: 'BASEMENT FLAT',
         building_name: 'VICTORIA HOUSE',
         building_number: 15,
@@ -380,9 +376,9 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address from Mainfile' do
+  it 'arrayifies address from Mainfile' do
     expect(
-      described_class.format(
+      described_class.to_a(
         organisation_name: 'SOUTH LANARKSHIRE COUNCIL',
         department_name: 'HEAD START',
         sub_building_name: 'UNIT 1',
@@ -408,7 +404,24 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats address as a string' do
+  it 'arrayifies Paf instance' do
+    expect(
+      nursery_lane.to_a
+    ).to eq(
+      [
+        '1-2 NURSERY LANE',
+        'PENN',
+        'HIGH WYCOMBE',
+        'HP10 8LS'
+      ]
+    )
+  end
+
+  it 'stringifies empty address' do
+    expect(described_class.to_s({})).to eq('')
+  end
+
+  it 'stringifies address from Mainfile' do
     expect(
       described_class.to_s(
         organisation_name: 'SOUTH LANARKSHIRE COUNCIL',
@@ -435,9 +448,24 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats Paf instance as array' do
+  it 'stringifies Paf instance' do
     expect(
-      nursery_lane.format
+      nursery_lane.to_s
+    ).to eq(
+      '1-2 NURSERY LANE, PENN, HIGH WYCOMBE. HP10 8LS'
+    )
+  end
+
+  it 'formats address' do
+    expect(
+      described_class.format(
+        building_name: '1-2',
+        thoroughfare_name: 'NURSERY',
+        thoroughfare_descriptor: 'LANE',
+        dependent_locality: 'PENN',
+        post_town: 'HIGH WYCOMBE',
+        postcode: 'HP10 8LS'
+      )
     ).to eq(
       [
         '1-2 NURSERY LANE',
@@ -448,11 +476,16 @@ RSpec.describe Paf do
     )
   end
 
-  it 'formats Paf instance as a string' do
+  it 'formats Paf instance' do
     expect(
-      nursery_lane.to_s
+      nursery_lane.format
     ).to eq(
-      '1-2 NURSERY LANE, PENN, HIGH WYCOMBE. HP10 8LS'
+      [
+        '1-2 NURSERY LANE',
+        'PENN',
+        'HIGH WYCOMBE',
+        'HP10 8LS'
+      ]
     )
   end
 end
