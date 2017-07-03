@@ -2,6 +2,9 @@ require 'bundler/setup'
 require 'paf'
 
 RSpec.configure do |config|
+  # Include any shared examples
+  Dir['./spec/shared_examples/**/*.rb'].sort.each { |f| require f }
+
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = '.rspec_status'
 
