@@ -1,4 +1,6 @@
 shared_examples_for 'it is fully formattable' do
+  let(:format) { array }
+
   it_behaves_like 'it is class arrayifiable'
   it_behaves_like 'it is class stringyfiable'
   it_behaves_like 'it is class formattable'
