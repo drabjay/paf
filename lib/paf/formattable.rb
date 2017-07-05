@@ -22,6 +22,11 @@ class Paf
         new(args).to_a
       end
 
+      # Formats a hash of PAF address elements into a hash of strings
+      def to_h(args)
+        new(args).to_h
+      end
+
       # Formats a hash of PAF address elements into a string
       def to_s(*args)
         return super if args.empty?
@@ -38,6 +43,15 @@ class Paf
         array << send(attr) unless send(attr).vacant?
       end
       array
+    end
+
+    # Formats a Paf instance into a hash of strings
+    def to_h
+      hash = {}
+      hash[:lines] = lines unless lines.empty?
+      hash[:post_town] = post_town unless post_town.vacant?
+      hash[:postcode] = postcode unless postcode.vacant?
+      hash
     end
 
     # Formats a Paf instance into a string

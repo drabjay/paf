@@ -30,6 +30,21 @@ RSpec.describe Paf do
         'G72 0UP'
       ]
     end
+    let(:hash) do
+      {
+        lines: [
+          'SOUTH LANARKSHIRE COUNCIL',
+          'HEAD START',
+          'UNIT 1',
+          'BLOCK 3',
+          'THIRD ROAD',
+          'BLANTYRE INDUSTRIAL ESTATE',
+          'BLANTYRE'
+        ],
+        post_town: 'GLASGOW',
+        postcode: 'G72 0UP'
+      }
+    end
     let(:string) do
       'SOUTH LANARKSHIRE COUNCIL, '\
       'HEAD START, '\

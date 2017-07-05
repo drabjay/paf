@@ -14,6 +14,13 @@ RSpec.describe Paf do
       }
     end
     let(:array) { ['FLAT 1', '12 LIME TREE AVENUE', 'BRISTOL', 'BS8 4AB'] }
+    let(:hash) do
+      {
+        lines: ['FLAT 1', '12 LIME TREE AVENUE'],
+        post_town: 'BRISTOL',
+        postcode: 'BS8 4AB'
+      }
+    end
     let(:string) { 'FLAT 1, 12 LIME TREE AVENUE, BRISTOL. BS8 4AB' }
 
     it_behaves_like 'it is fully formattable'
@@ -39,6 +46,13 @@ RSpec.describe Paf do
         'SALISBURY',
         'SP5 4NA'
       ]
+    end
+    let(:hash) do
+      {
+        lines: ['12A HIGH STREET NORTH', 'COOMBE BISSETT'],
+        post_town: 'SALISBURY',
+        postcode: 'SP5 4NA'
+      }
     end
     let(:string) { '12A HIGH STREET NORTH, COOMBE BISSETT, SALISBURY. SP5 4NA' }
 

@@ -11,12 +11,14 @@ RSpec.describe Paf do
       }
     end
     let(:array) do
-      [
-        'LEDA ENGINEERING LTD',
-        'APPLEFORD',
-        'ABINGDON',
-        'OX14 4PG'
-      ]
+      ['LEDA ENGINEERING LTD', 'APPLEFORD', 'ABINGDON', 'OX14 4PG']
+    end
+    let(:hash) do
+      {
+        lines: ['LEDA ENGINEERING LTD', 'APPLEFORD'],
+        post_town: 'ABINGDON',
+        postcode: 'OX14 4PG'
+      }
     end
     let(:string) { 'LEDA ENGINEERING LTD, APPLEFORD, ABINGDON. OX14 4PG' }
 

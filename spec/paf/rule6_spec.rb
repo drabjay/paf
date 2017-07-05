@@ -21,6 +21,13 @@ RSpec.describe Paf do
         'B6 5BA'
       ]
     end
+    let(:hash) do
+      {
+        lines: ['10B BARRY JACKSON TOWER', 'ESTONE WALK'],
+        post_town: 'BIRMINGHAM',
+        postcode: 'B6 5BA'
+      }
+    end
     let(:string) { '10B BARRY JACKSON TOWER, ESTONE WALK, BIRMINGHAM. B6 5BA' }
 
     it_behaves_like 'it is fully formattable'
@@ -44,6 +51,13 @@ RSpec.describe Paf do
         'BRISTOL',
         'BS1 2AW'
       ]
+    end
+    let(:hash) do
+      {
+        lines: ['CARETAKERS FLAT', '110-114 HIGH STREET WEST'],
+        post_town: 'BRISTOL',
+        postcode: 'BS1 2AW'
+      }
     end
     let(:string) do
       'CARETAKERS FLAT, 110-114 HIGH STREET WEST, BRISTOL. BS1 2AW'
@@ -71,6 +85,13 @@ RSpec.describe Paf do
         'HORLEY',
         'RH6 0HP'
       ]
+    end
+    let(:hash) do
+      {
+        lines: ['STABLES FLAT', 'THE MANOR', 'UPPER HILL'],
+        post_town: 'HORLEY',
+        postcode: 'RH6 0HP'
+      }
     end
     let(:string) { 'STABLES FLAT, THE MANOR, UPPER HILL, HORLEY. RH6 0HP' }
 

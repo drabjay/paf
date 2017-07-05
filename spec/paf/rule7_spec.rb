@@ -15,6 +15,13 @@ RSpec.describe Paf do
       }
     end
     let(:array) { ['2B THE TOWER', '27 JOHN STREET', 'WINCHESTER', 'SO23 9AP'] }
+    let(:hash) do
+      {
+        lines: ['2B THE TOWER', '27 JOHN STREET'],
+        post_town: 'WINCHESTER',
+        postcode: 'SO23 9AP'
+      }
+    end
     let(:string) { '2B THE TOWER, 27 JOHN STREET, WINCHESTER. SO23 9AP' }
 
     it_behaves_like 'it is fully formattable'
@@ -40,6 +47,13 @@ RSpec.describe Paf do
         'CORYTON',
         'BP23 6AA'
       ]
+    end
+    let(:hash) do
+      {
+        lines: ['BASEMENT FLAT', 'VICTORIA HOUSE', '15 THE STREET'],
+        post_town: 'CORYTON',
+        postcode: 'BP23 6AA'
+      }
     end
     let(:string) do
       'BASEMENT FLAT, VICTORIA HOUSE, 15 THE STREET, CORYTON. BP23 6AA'

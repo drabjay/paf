@@ -15,6 +15,13 @@ RSpec.describe Paf do
       }
     end
     let(:array) { ['1A SEASTONE COURT', 'STATION ROAD', 'HOLT', 'NR25 7HG'] }
+    let(:hash) do
+      {
+        lines: ['1A SEASTONE COURT', 'STATION ROAD'],
+        post_town: 'HOLT',
+        postcode: 'NR25 7HG'
+      }
+    end
     let(:string) { '1A SEASTONE COURT, STATION ROAD, HOLT. NR25 7HG' }
 
     it_behaves_like 'it is fully formattable'
@@ -31,6 +38,13 @@ RSpec.describe Paf do
       }
     end
     let(:array) { ['THE MANOR', 'UPPER HILL', 'HORLEY', 'RH6 0HP'] }
+    let(:hash) do
+      {
+        lines: ['THE MANOR', 'UPPER HILL'],
+        post_town: 'HORLEY',
+        postcode: 'RH6 0HP'
+      }
+    end
     let(:string) { 'THE MANOR, UPPER HILL, HORLEY. RH6 0HP' }
 
     it_behaves_like 'it is fully formattable'
@@ -55,6 +69,13 @@ RSpec.describe Paf do
         'CANNOCK',
         'WS11 5SB'
       ]
+    end
+    let(:hash) do
+      {
+        lines: ['S D ALCOTT FLORISTS', 'FLOWER HOUSE', '189A PYE GREEN ROAD'],
+        post_town: 'CANNOCK',
+        postcode: 'WS11 5SB'
+      }
     end
     let(:string) do
       'S D ALCOTT FLORISTS, '\
@@ -86,6 +107,13 @@ RSpec.describe Paf do
         'GRAFTON',
         'ME16 0LP'
       ]
+    end
+    let(:hash) do
+      {
+        lines: ['JAMES VILLA HOLIDAYS', 'CENTRE 30', 'ST LAURENCE AVENUE'],
+        post_town: 'GRAFTON',
+        postcode: 'ME16 0LP'
+      }
     end
     let(:string) do
       'JAMES VILLA HOLIDAYS, '\

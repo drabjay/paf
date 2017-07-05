@@ -11,6 +11,13 @@ RSpec.describe Paf do
       }
     end
     let(:array) { ['12A UPPERKIRKGATE', 'ABERDEEN', 'AB10 1BA'] }
+    let(:hash) do
+      {
+        lines: ['12A UPPERKIRKGATE'],
+        post_town: 'ABERDEEN',
+        postcode: 'AB10 1BA'
+      }
+    end
     let(:string) { '12A UPPERKIRKGATE, ABERDEEN. AB10 1BA' }
 
     it_behaves_like 'it is fully formattable'
