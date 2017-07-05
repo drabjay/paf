@@ -48,9 +48,9 @@ class Paf
     # Formats a Paf instance into a hash of strings
     def to_h
       hash = {}
-      hash[:lines] = lines unless lines.empty?
-      hash[:post_town] = post_town unless post_town.vacant?
-      hash[:postcode] = postcode unless postcode.vacant?
+      ([:lines] + self.class.post_attrs).each do |attr|
+        hash[attr] = send(attr) unless send(attr).vacant?
+      end
       hash
     end
 
