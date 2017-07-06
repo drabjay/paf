@@ -23,7 +23,7 @@ Or install it yourself as:
 May be used to format the PAF elements as an array of strings:
 
 ```ruby
-Paf.format(
+Paf.to_a(
   building_name: '1-2',
   thoroughfare_name: 'NURSERY',
   thoroughfare_descriptor: 'LANE',
@@ -33,6 +33,25 @@ Paf.format(
 )
 
 ['1-2 NURSERY LANE', 'PENN', 'HIGH WYCOMBE', 'HP10 8LS']
+```
+
+Or as a hash of strings:
+
+```ruby
+Paf.to_h(
+  building_name: '1-2',
+  thoroughfare_name: 'NURSERY',
+  thoroughfare_descriptor: 'LANE',
+  dependent_locality: 'PENN',
+  post_town: 'HIGH WYCOMBE',
+  postcode: 'HP10 8LS'
+)
+
+{
+  lines: ['1-2 NURSERY LANE', 'PENN'],
+  post_town: 'HIGH WYCOMBE',
+  postcode: 'HP10 8LS'
+}
 ```
 
 Or as a single string:
@@ -61,9 +80,25 @@ paf = Paf.new(
   post_town: 'HIGH WYCOMBE',
   postcode: 'HP10 8LS'
 )
-paf.format
+paf.to_a
 
 ['1-2 NURSERY LANE', 'PENN', 'HIGH WYCOMBE', 'HP10 8LS']
+
+paf = Paf.new(
+  building_name: '1-2',
+  thoroughfare_name: 'NURSERY',
+  thoroughfare_descriptor: 'LANE',
+  dependent_locality: 'PENN',
+  post_town: 'HIGH WYCOMBE',
+  postcode: 'HP10 8LS'
+)
+paf.to_h
+
+{
+  lines: ['1-2 NURSERY LANE', 'PENN'],
+  post_town: 'HIGH WYCOMBE',
+  postcode: 'HP10 8LS'
+}
 
 paf = Paf.new(
   building_name: '1-2',
