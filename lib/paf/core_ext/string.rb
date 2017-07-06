@@ -7,7 +7,15 @@ class Paf
       end
 
       def paf_split_exception?
-        paf_exception? && /^\d+$/.match(self).nil?
+        last_word.paf_exception? && /^\d+$/.match(last_word).nil?
+      end
+
+      def last_word
+        split.last
+      end
+
+      def but_last_word
+        self[0...rindex(' ')]
       end
     end
   end
