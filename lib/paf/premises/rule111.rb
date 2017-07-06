@@ -6,7 +6,7 @@ class Paf
 
       def premises
         return [sub_name_and_name, number_and_thoroughfare_or_locality] if
-          sub_building_name.paf_exception?
+          sub_building_name.exception?
         [sub_building_name, building_name, number_and_thoroughfare_or_locality]
       end
 

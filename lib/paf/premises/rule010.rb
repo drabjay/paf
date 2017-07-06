@@ -5,9 +5,8 @@ class Paf
       private
 
       def premises
-        return [name_and_thoroughfare_or_locality] if
-          building_name.paf_exception?
-        if building_name.paf_split_exception?
+        return [name_and_thoroughfare_or_locality] if building_name.exception?
+        if building_name.split_exception?
           return [
             building_name.but_last_word,
             name_last_word_and_thoroughfare_or_locality
@@ -17,7 +16,7 @@ class Paf
       end
 
       def premises_includes_first_thoroughfare_or_locality?
-        building_name.paf_exception? || building_name.paf_split_exception?
+        building_name.exception? || building_name.split_exception?
       end
 
       def name_last_word_and_thoroughfare_or_locality
