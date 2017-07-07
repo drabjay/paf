@@ -29,25 +29,16 @@ class Paf
 
     # Methods to be added to the including class
     module ClassMethods
-      # Formats a hash of PAF address elements into an array of strings
-      def to_a(args)
-        new(args).to_a
-      end
-
-      # Formats a hash of PAF address elements into a hash of strings
-      def to_h(args)
-        new(args).to_h
+      %i[to_a to_h format].each do |method|
+        define_method method do |args|
+          new(args).send(method)
+        end
       end
 
       # Formats a hash of PAF address elements into a string
       def to_s(*args)
         return super if args.empty?
         new(args[0]).to_s
-      end
-
-      # Formats a hash of PAF address elements
-      def format(args)
-        new(args).format
       end
     end
 
