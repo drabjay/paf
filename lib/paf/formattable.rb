@@ -1,4 +1,3 @@
-require 'paf/premises'
 require 'paf/array_formatter'
 require 'paf/hash_formatter'
 require 'paf/string_formatter'
