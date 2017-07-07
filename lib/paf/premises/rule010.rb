@@ -2,8 +2,6 @@ class Paf
   module Premises
     # Processing for premises elements of a PAF entry under Rule 3
     module Rule010
-      private
-
       def premises
         return [name_and_thoroughfare_or_locality] if building_name.exception?
         if building_name.split_exception?
@@ -14,6 +12,8 @@ class Paf
         end
         [building_name]
       end
+
+      private
 
       def premises_includes_first_thoroughfare_or_locality?
         building_name.exception? || building_name.split_exception?

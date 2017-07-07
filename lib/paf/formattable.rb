@@ -1,4 +1,3 @@
-require 'paf/lineable'
 require 'paf/premises'
 require 'paf/thoroughfare_locality'
 require 'paf/array_formatter'
@@ -11,7 +10,6 @@ class Paf
     def self.included(base)
       base.extend ClassMethods
       base.class_eval do
-        include Lineable
         include Premises
         include ThoroughfareLocality
       end

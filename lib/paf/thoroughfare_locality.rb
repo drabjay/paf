@@ -13,8 +13,6 @@ class Paf
       end
     end
 
-    private
-
     def thoroughfares_and_localities
       array = []
       self.class.thoroughfare_and_locality_attrs.each do |attr|
@@ -24,6 +22,8 @@ class Paf
       end
       array
     end
+
+    private
 
     def first_thoroughfare_or_locality
       send(first_thoroughfare_or_locality_attr) unless

@@ -1,6 +1,10 @@
+require 'paf/lineable'
+
 class Paf
   # Processing to format a PAF entry
   class Formatter
+    include Lineable
+
     def self.format(paf)
       new.format(paf)
     end
