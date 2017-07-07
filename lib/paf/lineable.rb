@@ -10,12 +10,12 @@ class Paf
     end
 
     def lines
-      lines = []
-      lines_methods.each do |method|
-        value = send(method)
-        (lines << value).flatten! unless value.vacant?
+      [].tap do |lines|
+        lines_methods.each do |method|
+          value = send(method)
+          (lines << value).flatten! unless value.vacant?
+        end
       end
-      lines
     end
 
     private

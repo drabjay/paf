@@ -6,13 +6,13 @@ class Paf
     end
 
     def thoroughfares_and_localities
-      array = []
-      thoroughfare_and_locality_attrs.each do |attr|
-        next if used?(attr)
-        value = send(attr)
-        array << value unless value.vacant?
+      [].tap do |array|
+        thoroughfare_and_locality_attrs.each do |attr|
+          next if used?(attr)
+          value = send(attr)
+          array << value unless value.vacant?
+        end
       end
-      array
     end
 
     private

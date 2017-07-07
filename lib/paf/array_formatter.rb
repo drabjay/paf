@@ -5,11 +5,11 @@ class Paf
   class ArrayFormatter < Formatter
     def format(paf)
       super(paf)
-      array = lines
-      post_attrs.each do |attr|
-        array << send(attr) unless send(attr).vacant?
+      lines.clone.tap do |array|
+        post_attrs.each do |attr|
+          array << send(attr) unless send(attr).vacant?
+        end
       end
-      array
     end
   end
 end

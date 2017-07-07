@@ -5,11 +5,11 @@ class Paf
   class HashFormatter < Formatter
     def format(paf)
       super(paf)
-      hash = {}
-      ([:lines] + post_attrs).each do |attr|
-        hash[attr] = send(attr) unless send(attr).vacant?
+      {}.tap do |hash|
+        ([:lines] + post_attrs).each do |attr|
+          hash[attr] = send(attr) unless send(attr).vacant?
+        end
       end
-      hash
     end
   end
 end
