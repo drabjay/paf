@@ -1,6 +1,9 @@
 require 'paf/lineable'
 require 'paf/premises'
 require 'paf/thoroughfare_locality'
+require 'paf/array_formatter'
+require 'paf/hash_formatter'
+require 'paf/string_formatter'
 
 class Paf
   # Processing to format a PAF entry
@@ -38,25 +41,17 @@ class Paf
 
     # Formats a Paf instance into an array of strings
     def to_a
-      array = lines
-      self.class.post_attrs.each do |attr|
-        array << send(attr) unless send(attr).vacant?
-      end
-      array
+      Paf::ArrayFormatter.format(self)
     end
 
     # Formats a Paf instance into a hash of strings
     def to_h
-      hash = {}
-      ([:lines] + self.class.post_attrs).each do |attr|
-        hash[attr] = send(attr) unless send(attr).vacant?
-      end
-      hash
+      Paf::HashFormatter.format(self)
     end
 
     # Formats a Paf instance into a string
     def to_s
-      ([(lines + [post_town]).condense(', ')] + [postcode]).condense('. ')
+      Paf::StringFormatter.format(self)
     end
 
     alias format to_a

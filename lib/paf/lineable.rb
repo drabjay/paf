@@ -13,8 +13,6 @@ class Paf
       end
     end
 
-    private
-
     def lines
       lines = []
       self.class.lines_methods.each do |method|
