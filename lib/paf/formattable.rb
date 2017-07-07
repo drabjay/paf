@@ -1,5 +1,4 @@
 require 'paf/premises'
-require 'paf/thoroughfare_locality'
 require 'paf/array_formatter'
 require 'paf/hash_formatter'
 require 'paf/string_formatter'
@@ -7,15 +6,12 @@ require 'paf/string_formatter'
 class Paf
   # Processing to format a PAF entry
   module Formattable
-    attr_accessor :formatter
+    attr_accessor :formatter, :concatenation_indicator
+    private :concatenation_indicator=
 
     def self.included(base)
       base.prepend Initializer
       base.extend ClassMethods
-      base.class_eval do
-        include Premises
-        include ThoroughfareLocality
-      end
     end
     private_class_method :included
 

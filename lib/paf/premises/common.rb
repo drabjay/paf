@@ -2,9 +2,6 @@ class Paf
   module Premises
     # Common processing for premises elements of a PAF entry
     module Common
-      attr_accessor :concatenation_indicator
-      private :concatenation_indicator=
-
       private
 
       def concatenate?

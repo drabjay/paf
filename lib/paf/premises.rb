@@ -5,25 +5,16 @@ class Paf
   module Premises
     include Common
 
-    def self.included(base)
-      base.prepend Initializer
+    def self.extended(base)
+      base.extend_premises_rule
     end
-    private_class_method :included
-
-    # initialize method to be prepended to the including class
-    module Initializer
-      def initialize(*)
-        super if defined? super
-        extend_premises_rule
-      end
-    end
-
-    private
 
     def extend_premises_rule
       require premises_rule_filename
       extend premises_rule_module
     end
+
+    private
 
     def premises_rule_filename
       "paf/premises/rule#{rule_key}"
