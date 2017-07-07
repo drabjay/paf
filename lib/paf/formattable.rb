@@ -35,29 +35,18 @@ class Paf
         end
       end
 
-      # Formats a hash of PAF address elements into a string
       def to_s(*args)
         return super if args.empty?
         new(args[0]).to_s
       end
     end
 
-    # Formats a Paf instance into an array of strings
-    def to_a
-      Paf::ArrayFormatter.format(self)
+    { to_a: :Array, to_h: :Hash, to_s: :String }.each do |key, value|
+      define_method key do
+        Kernel.const_get("Paf::#{value}Formatter").format(self)
+      end
     end
 
-    # Formats a Paf instance into a hash of strings
-    def to_h
-      Paf::HashFormatter.format(self)
-    end
-
-    # Formats a Paf instance into a string
-    def to_s
-      Paf::StringFormatter.format(self)
-    end
-
-    # Formats a Paf instance
     def format
       formatter.format(self)
     end
