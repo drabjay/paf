@@ -1,10 +1,6 @@
 class Paf
   # Processing for thoroughfare and locality elements of a PAF entry
   module ThoroughfareLocality
-    def thoroughfare_and_locality_attrs
-      %i[dependent_thoroughfare thoroughfare] + self.class.locality_attrs
-    end
-
     def thoroughfares_and_localities
       [].tap do |array|
         thoroughfare_and_locality_attrs.each do |attr|
@@ -14,6 +10,10 @@ class Paf
     end
 
     private
+
+    def thoroughfare_and_locality_attrs
+      %i[dependent_thoroughfare thoroughfare] + self.class.locality_attrs
+    end
 
     def first_thoroughfare_or_locality
       send(first_thoroughfare_or_locality_attr) unless
