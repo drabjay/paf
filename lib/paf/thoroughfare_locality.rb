@@ -8,8 +8,7 @@ class Paf
     def thoroughfares_and_localities
       [].tap do |array|
         thoroughfare_and_locality_attrs.each do |attr|
-          next if used?(attr)
-          array << send(attr) unless send(attr).vacant?
+          array << send(attr) unless used_or_vacant?(attr)
         end
       end
     end
@@ -28,6 +27,10 @@ class Paf
     def used?(attr)
       premises_includes_first_thoroughfare_or_locality? &&
         (attr == first_thoroughfare_or_locality_attr)
+    end
+
+    def used_or_vacant?(attr)
+      used?(attr) || send(attr).vacant?
     end
   end
 end
