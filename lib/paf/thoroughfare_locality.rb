@@ -9,8 +9,7 @@ class Paf
       [].tap do |array|
         thoroughfare_and_locality_attrs.each do |attr|
           next if used?(attr)
-          value = send(attr)
-          array << value unless value.vacant?
+          array << send(attr) unless send(attr).vacant?
         end
       end
     end
@@ -23,9 +22,7 @@ class Paf
     end
 
     def first_thoroughfare_or_locality_attr
-      thoroughfare_and_locality_attrs.find do |attr|
-        !send(attr).vacant?
-      end
+      thoroughfare_and_locality_attrs.find { |attr| !send(attr).vacant? }
     end
 
     def used?(attr)

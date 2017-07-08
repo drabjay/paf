@@ -12,8 +12,7 @@ class Paf
     def lines
       [].tap do |lines|
         lines_methods.each do |method|
-          value = send(method)
-          (lines << value).flatten! unless value.vacant?
+          (lines << send(method)).flatten! unless send(method).vacant?
         end
       end
     end
