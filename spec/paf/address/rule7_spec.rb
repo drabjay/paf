@@ -2,6 +2,32 @@ require 'spec_helper'
 
 # rubocop:disable Metrics/BlockLength
 RSpec.describe Paf::Address do
+  context 'with Rule 7 with a 0 building number' do
+    let(:address) do
+      {
+        sub_building_name: 'FLAT 1',
+        building_name: 'HOLLY HOUSE',
+        building_number: 0,
+        thoroughfare_name: 'OAK',
+        thoroughfare_descriptor: 'AVENUE',
+        dependent_locality: 'BIDDENDEN',
+        post_town: 'ASHFORD',
+        postcode: 'TN27 8BT'
+      }
+    end
+    let(:array) { ['FLAT 1, HOLLY HOUSE', 'OAK AVENUE', 'BIDDENDEN', 'ASHFORD', 'TN27 8BT'] }
+    let(:hash) do
+      {
+        lines: ['FLAT 1, HOLLY HOUSE', 'OAK AVENUE', 'BIDDENDEN'],
+        post_town: 'ASHFORD',
+        postcode: 'TN27 8BT'
+      }
+    end
+    let(:string) { 'FLAT 1, HOLLY HOUSE, OAK AVENUE, BIDDENDEN, ASHFORD. TN27 8BT' }
+
+    it_behaves_like 'it is fully formattable'
+  end
+
   context 'with Rule 7 with sub-building name exception' do
     let(:address) do
       {
