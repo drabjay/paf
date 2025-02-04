@@ -1,6 +1,6 @@
 require 'paf/formatter'
 
-class Paf
+module Paf
   # Processing to format a PAF entry as a hash
   class HashFormatter < Formatter
     def format(paf)

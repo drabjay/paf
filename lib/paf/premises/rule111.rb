@@ -1,10 +1,11 @@
-class Paf
+module Paf
   module Premises
     # Processing for premises elements of a PAF entry under Rule 7
     module Rule111
       def premises
         return [sub_name_and_name, number_and_thoroughfare_or_locality] if
           sub_building_name.exception?
+
         [sub_building_name, building_name, number_and_thoroughfare_or_locality]
       end
 

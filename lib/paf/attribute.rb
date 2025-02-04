@@ -1,4 +1,4 @@
-class Paf
+module Paf
   # Basic attributes or elements that make up a PAF entry
   module Attribute
     def self.included(base)

@@ -1,4 +1,13 @@
 require: rubocop-rspec
 
+AllCops:
+  TargetRubyVersion: 2.4
+
 RSpec/ExampleLength:
   Max: 25
+
+Style/EndOfLine:
+  EnforcedStyle: lf
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

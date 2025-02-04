@@ -1,4 +1,4 @@
-class Paf
+module Paf
   module CoreExt
     # Extend the core String class with PAF specific processing
     module String

@@ -1,7 +1,7 @@
 require 'paf/premises'
 require 'paf/thoroughfare_locality'
 
-class Paf
+module Paf
   # Processing to format PAF entry lines
   module Lineable
     def self.extended(base)

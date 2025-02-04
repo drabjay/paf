@@ -1,4 +1,4 @@
-class Paf
+module Paf
   module Premises
     # Processing for premises elements of a PAF entry under Rule 6
     module Rule110
@@ -6,6 +6,7 @@ class Paf
         return [sub_name_and_name] if sub_building_name.exception?
         return [sub_building_name, name_and_thoroughfare_or_locality] if
           building_name.exception?
+
         [sub_building_name, building_name]
       end
 

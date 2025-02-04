@@ -1,6 +1,6 @@
 require 'paf/premises/common'
 
-class Paf
+module Paf
   # Determine which premises rule is applicable
   module Premises
     include Common

@@ -1,6 +1,6 @@
 require 'paf/core_ext/string'
 
-class Paf
+module Paf
   module CoreExt
     # Extend the core Array class with PAF specific processing
     module Array
