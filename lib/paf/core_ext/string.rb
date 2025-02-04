@@ -7,7 +7,7 @@ module Paf
       end
 
       def split_exception?
-        last_word.exception? && /^\d+$/.match(last_word).nil?
+        last_word.exception? && /^\d+$/.match(last_word).nil? && !but_last_word.known_building_type?
       end
 
       def last_word
@@ -16,6 +16,13 @@ module Paf
 
       def but_last_word
         self[0...rindex(' ')]
+      end
+
+      def known_building_type?
+        [
+          'BACK OF', 'BLOCK', 'BLOCKS', 'BUILDING', 'MAISONETTE', 'MAISONETTES', 'REAR OF',
+          'SHOP', 'SHOPS', 'STALL', 'STALLS', 'SUITE', 'SUITES', 'UNIT', 'UNITS'
+        ].include?(self)
       end
     end
   end
