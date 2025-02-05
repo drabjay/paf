@@ -13,8 +13,8 @@ Gem::Specification.new do |spec|
   spec.description   = <<-DESC
     A gem to format the elements of a Royal Mail Postcode Address File entry
     according to the rules described in the Royal Mail Programmer's Guide
-    Edition 7, Version 5.0
-    (http://www.royalmail.com/sites/default/files/docs/pdf/programmers_guide_edition_7_v5.pdf)
+    Edition 7, Version 6.2
+    (https://www.poweredbypaf.com/wp-content/uploads/2024/11/Latest-Programmers_guide_Edition-7-Version-6-2.pdf)
   DESC
   spec.license       = 'MIT'
 
