@@ -20,10 +20,10 @@ Or install it yourself as:
 
 ## Usage
 
-May be used to format the PAF elements as an array of strings:
+May be used to format the Paf::Address elements as an array of strings:
 
 ```ruby
-Paf.to_a(
+Paf::Address.to_a(
   building_name: '1-2',
   thoroughfare_name: 'NURSERY',
   thoroughfare_descriptor: 'LANE',
@@ -38,7 +38,7 @@ Paf.to_a(
 Or as a hash of strings:
 
 ```ruby
-Paf.to_h(
+Paf::Address.to_h(
   building_name: '1-2',
   thoroughfare_name: 'NURSERY',
   thoroughfare_descriptor: 'LANE',
@@ -57,7 +57,7 @@ Paf.to_h(
 Or as a single string:
 
 ```ruby
-Paf.to_s(
+Paf::Address.to_s(
   building_name: '1-2',
   thoroughfare_name: 'NURSERY',
   thoroughfare_descriptor: 'LANE',
@@ -69,10 +69,10 @@ Paf.to_s(
 '1-2 NURSERY LANE, PENN, HIGH WYCOMBE. HP10 8LS'
 ```
 
-Or from a Paf instance:
+Or from a Paf::Address instance:
 
 ```ruby
-paf = Paf.new(
+address = Paf::Address.new(
   building_name: '1-2',
   thoroughfare_name: 'NURSERY',
   thoroughfare_descriptor: 'LANE',
@@ -80,11 +80,11 @@ paf = Paf.new(
   post_town: 'HIGH WYCOMBE',
   postcode: 'HP10 8LS'
 )
-paf.to_a
+address.to_a
 
 ['1-2 NURSERY LANE', 'PENN', 'HIGH WYCOMBE', 'HP10 8LS']
 
-paf = Paf.new(
+address = Paf::Address.new(
   building_name: '1-2',
   thoroughfare_name: 'NURSERY',
   thoroughfare_descriptor: 'LANE',
@@ -92,7 +92,7 @@ paf = Paf.new(
   post_town: 'HIGH WYCOMBE',
   postcode: 'HP10 8LS'
 )
-paf.to_h
+address.to_h
 
 {
   lines: ['1-2 NURSERY LANE', 'PENN'],
@@ -100,7 +100,7 @@ paf.to_h
   postcode: 'HP10 8LS'
 }
 
-paf = Paf.new(
+address = Paf::Address.new(
   building_name: '1-2',
   thoroughfare_name: 'NURSERY',
   thoroughfare_descriptor: 'LANE',
@@ -108,7 +108,7 @@ paf = Paf.new(
   post_town: 'HIGH WYCOMBE',
   postcode: 'HP10 8LS'
 )
-paf.to_s
+address.to_s
 
 '1-2 NURSERY LANE, PENN, HIGH WYCOMBE. HP10 8LS'
 ```

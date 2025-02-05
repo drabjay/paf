@@ -1,6 +1,6 @@
 require 'paf/lineable'
 
-class Paf
+module Paf
   # Processing to format a PAF entry
   class Formatter
     def self.format(paf)
@@ -15,6 +15,7 @@ class Paf
     def method_missing(method, *args)
       return @paf.send(method, *args) if @paf.respond_to?(method)
       return @paf.class.send(method, *args) if @paf.class.respond_to?(method)
+
       super
     end
 

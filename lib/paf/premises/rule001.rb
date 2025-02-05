@@ -1,4 +1,4 @@
-class Paf
+module Paf
   module Premises
     # Processing for premises elements of a PAF entry under Rule 2
     module Rule001

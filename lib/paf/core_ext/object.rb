@@ -1,4 +1,4 @@
-class Paf
+module Paf
   module CoreExt
     # Extend the core Object class with PAF specific processing
     module Object

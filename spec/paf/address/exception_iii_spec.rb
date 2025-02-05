@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Paf do
+RSpec.describe Paf::Address do
   context 'with Exception Rule indicator iii' do
     let(:address) do
       {

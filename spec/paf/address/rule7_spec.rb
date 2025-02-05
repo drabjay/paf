@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 # rubocop:disable Metrics/BlockLength
-RSpec.describe Paf do
+RSpec.describe Paf::Address do
   context 'with Rule 7 with sub-building name exception' do
     let(:address) do
       {

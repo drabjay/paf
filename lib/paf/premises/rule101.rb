@@ -1,9 +1,10 @@
-class Paf
+module Paf
   module Premises
     # Processing for premises elements of a PAF entry under Rule 5
     module Rule101
       def premises
         return [number_sub_name_and_thoroughfare_or_locality] if concatenate?
+
         [sub_building_name, number_and_thoroughfare_or_locality]
       end
 

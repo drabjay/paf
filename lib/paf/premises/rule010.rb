@@ -1,9 +1,10 @@
-class Paf
+module Paf
   module Premises
     # Processing for premises elements of a PAF entry under Rule 3
     module Rule010
       def premises
         return [name_and_thoroughfare_or_locality] if building_name.exception?
+
         if building_name.split_exception?
           return [
             building_name.but_last_word,

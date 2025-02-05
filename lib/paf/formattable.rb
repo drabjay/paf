@@ -2,7 +2,7 @@ require 'paf/array_formatter'
 require 'paf/hash_formatter'
 require 'paf/string_formatter'
 
-class Paf
+module Paf
   # Processing to format a PAF entry
   module Formattable
     attr_accessor :formatter, :concatenation_indicator
@@ -32,6 +32,7 @@ class Paf
 
       def to_s(*args)
         return super if args.empty?
+
         new(args[0]).to_s
       end
     end

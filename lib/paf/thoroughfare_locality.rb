@@ -1,4 +1,4 @@
-class Paf
+module Paf
   # Processing for thoroughfare and locality elements of a PAF entry
   module ThoroughfareLocality
     def thoroughfares_and_localities

@@ -1,4 +1,4 @@
-class Paf
+module Paf
   module Premises
     # Common processing for premises elements of a PAF entry
     module Common

@@ -1,6 +1,6 @@
 require 'paf/formatter'
 
-class Paf
+module Paf
   # Processing to format a PAF entry as an array
   class ArrayFormatter < Formatter
     def format(paf)
